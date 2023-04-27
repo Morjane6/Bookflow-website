@@ -1,0 +1,39 @@
+
+  
+  /* ..........////Mest solgt bøker///........... */
+   
+  #solgt h2 {
+    text-align: center;
+    font-size: 2 rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    color: #555;
+    padding-top: 60px;
+  }
+  
+  .solgt-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .solgt-container img {
+    display: block;
+    width: 100%;
+    margin: auto;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .img-container {
+    margin: 0 1rem;
+    position: relative;
+  }
+  
+ 
+  
+  
+
+ 

@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href= "Logo2.png">
+    <title>Bookflow</title>
+    
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="checkout.css" />
+    <script type="text/javascript">
+			function validate()
+			{
+			 var error="";
+			 var name = document.getElementById( "name_of_user" );
+			 if( name.value == "" )
+			 {
+			  error = " Skriv inn ditt brukernavn  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 var email = document.getElementById("email_of_user");
+			 if( email.value == "" || email.value.indexOf( "@" ) == -1 )
+			 {
+			  error = " Ikke valid epost-addresse ";
+			  document.getElementById("error_para").innerHTML = error;
+			  return false;
+			 }			 
+			 var password = document.getElementById( "password_of_user" );
+			 if( password.value == "" || password.value.length < 4 )
+			 {
+			  error = " Passord må på minst 4 digitel  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 else
+			 {
+			  error = " Registrering er vellykket ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			  //return true;
+			 }
+			}
+		</script>
+  
+    
+
+   
+  </head>
+  
+  <body>
+    
+    <nav class="navbar">
+      <div class="navbar-container container">
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              
+            <li><a href="Home.html">Hjem</a></li>
+            <li><a href="Kategori.html">Kategori</a></li>
+            <li><a href="Om_oss.html">Om oss</a></li>
+            <li><a href="kontakt_oss.html">Kontakt</a></li>
+            
+            <li class="dropdown">
+              <img style="width: 27px;" src="loggin.png" onclick="dropdown()" class="dropbtn">
+                <div id="myDropdown" class="dropdown-content">
+                 
+                 <form method="POST" action="" onsubmit="return validate();">
+                    <input type="text" name="username" placeholder="Brukernavn" id="name_of_user">
+                    <input type="text" name="useremail" placeholder="Epost" id="email_of_user">
+                    <input type="password" name="user_password" placeholder="Passord" id="password_of_user">
+                    <input type="submit" name="submit_form" value="loggin">
+                 </form>		
+                 <p id="error_para" ></p>
+                
+               
+               </div>
+ 
+                <script>
+                 
+                  function dropdown() {
+                   document.getElementById("myDropdown").classList.toggle("show");
+               }   
+ 
+              </script>
+            
+                  
+          </ul>
+          <a href="Home.html">  <img class="logo"style="width: 140px;" src="Logo.jpg"></a>
+          
+         
+          
+          
+      </div>
+  </nav>
+  <body>
+    <section id="payment">
+      <h2 >Betaling</h2>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      
+    </section>
+    <section id="row">
+        <div class="col-75">
+          <div class="container">
+            <form action="/action_page.php">
+              <h3 style="margin-bottom: 15px;">Betalingsmuligheter:</h3> 
+              <img style="width: 60px; height: 40px; " src="Faktura-Vat-2-obraz.png" alt=""/>
+              <img style= "width: 60px; height: 40px; ; " src="visa-logo-2.jpg" alt="" />
+              <img style= "width: 60px; height: 40px; ;" src="MasterCard_Logo.svg.png" alt="" />
+              <img style= "width: 60px; height: 40px; ;" src="vipps.png" alt="" />
+      
+              <div class="row">
+                <div class="col-50">
+                  
+              
+                  <h3 style="margin-top: 60px;">Faktureringsadresse</h3>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  <label for="fnavn"><i class="fa fa-user"></i> Fullt Navn</label>
+                  <input type="text" id="fnavn" navn="fornavn" placeholder="Skriv ditt navn her">
+                  <label for="epost"><i class="fa fa-envelope"></i> Epost</label>
+                  <input type="text" id="epost" navn="epost" placeholder="Skriv ditt epost her">
+                  <label for="adr"><i class="fa fa-addresse-kort-o"></i> Addresse</label>
+                  <input type="text" id="adr" navn="addresse" placeholder="Skriv ditt addresse her">
+                  
+                  
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label style="margin-left: -38px;" for="sted">Sted</label>
+                      <input style="margin-left: -38px;" type="text" id="sted" navn="sted" placeholder="Skriv ditt poststed her">
+                    </div>
+                    <div class="col-50">
+                      <label for="postnr">postnr</label>
+                      <input type="text" id="postnr" navn="postnr" placeholder="Skriv ditt postnr her">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-50">
+                  <h3 style="margin-top: 60px;">betalingskort info</h3>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  <div class="icon-container">
+                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                  </div>
+                  <label style="margin-top: -34px;" for="knavn">Navn på kortet</label>
+                  <input type="text" id="knavn" navn="navn på kortet" placeholder="Skriv navn på betalingskort her">
+                  <label for="kknum">kredittkortnummer</label>
+                  <input type="text" id="kknum" navn="kortnr" placeholder="Skriv betalingkortnummer her">
+                  
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label style="margin-left: -38px;"  for="Utg.mnd">Utgår måned</label>
+                      <input style="margin-left: -38px;" type="text" id="Utg.mnd" name="Utg.mnd" placeholder="Skriv kort utgår måned her">
+                      <label style="margin-left: -38px;" for= "CVV">CVV</label>
+                      <input style="margin-left: -38px;" type="text" id="cvv" navn="cvv" placeholder="Skriv betalingskort cvv her">
+                    </div>
+                    <div class="col-50">
+                      <label  for="Utg.-år">Utgår år</label>
+                      <input type="text" id="expyear" navn="expyear" placeholder="Skriv kort utgår år her">
+                      
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+              <label>
+                <input type="checkbox" checked="checked" navn="sammeadr"> Leveringsadresse samme som fakturering
+              </label>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+              <h3>Vi sender med:</h3>
+             
+              <img src="posten-bring-logo-5.png" style="width: 90px;">
+              <img src="PostNord.png" style="width: 90px; height: 60px;">
+             
+             
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+              <input type="submit" value="Fullfør betaling" class="btn">
+            </form>
+          </div>
+        </div>
+    </section>
+      
+       
+       
+      <p class="offershop-title">Vi kjøper dine brukte bøker!<a href="kontakt_oss.html"> Kontakt oss </a></p>
+      <div class="offershop-container container">
+      
+       </div>
+
+
+
+
+       <footer id="footer">
+   
+      
+    
+        Følg oss på: <a href="https://www.facebook.com/" target="_blank"><img style="width: 27px; padding-left: 7px;margin-left: 40px;" src="Facebook_f_logo_(2021).svg.png" alt="facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="instagram-icon.png" alt="instegram"></a>
+              <a href="https://twitter.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="twitter-icon.png" alt="Twiter">
+                <a href="Personvern.html" 
+                <a style=" color: white; padding-left: 7px;margin-left: 80px;padding-right: 7px; border-left: 1px solid ;font-size:medium; " >Personvern</a> 
+          
+        </footer>
+          
+            
+</body>
+</html>      
+

@@ -1,0 +1,351 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href= "Logo2.png">
+    <title>Bookflow</title>
+    
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="Bok-til-salg.css" />
+  
+
+    <script type="text/javascript">
+			function validate()
+			{
+			 var error="";
+			 var name = document.getElementById( "name_of_user" );
+			 if( name.value == "" )
+			 {
+			  error = " Skriv inn ditt brukernavn  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 var email = document.getElementById("email_of_user");
+			 if( email.value == "" || email.value.indexOf( "@" ) == -1 )
+			 {
+			  error = " Ikke valid epost-addresse. ";
+			  document.getElementById("error_para").innerHTML = error;
+			  return false;
+			 }			 
+			 var password = document.getElementById( "password_of_user" );
+			 if( password.value == "" || password.value.length < 4 )
+			 {
+			  error = " Passord må på minst 4 digitel  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 else
+			 {
+			  error = " Registrering er vellykket ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			  //return true;
+			 }
+			}
+           
+                
+      function dropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+             }   
+        
+             let cartCount = 0; // initial cart count
+      let cartItems = []; // array to store added items in cart
+
+      function addToCart(name, price, image) {
+      cartCount++; // increase cart count
+      document.querySelector('.cart-count').textContent =  'Antall bøker:' + cartCount; ; // update cart count in navbar
+  
+      cartItems.push({name: name, price: price, image: image}); // add item to cart array
+  
+      let cartItemHTML = ''; // variable to store cart item HTML
+      let cartTotal = 0; // variable to store total price of items in cart
+  
+       cartItems.forEach(item => {
+       cartItemHTML += `
+       <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">${item.price}</div>
+        </div>
+      </div>
+      `;
+    cartTotal += parseFloat(item.price); // add item price to total price
+     });
+  
+     document.querySelector('.cart-items').innerHTML = cartItemHTML; // display cart items
+     document.querySelector('.cart-total').textContent = `Total: ${cartTotal.toFixed(2)} kr`; // display total price
+    }
+    function clearCart() {
+  cartCount = 0; // reset cart count
+  cartItems = []; // reset cart items array
+  document.querySelector('.cart-count').textContent = 'Antall bøker:' + cartCount; // update cart count in navbar
+  document.querySelector('.cart-items').innerHTML = ''; // clear cart items
+  document.querySelector('.cart-total').textContent = 'Total: 0 kr'; // update total price to zero
+}
+
+
+    
+		</script>
+  
+    
+    <style>
+     
+   
+    </style>
+  
+  </head>
+  
+  <body>
+    
+    <nav class="navbar">
+      <div class="navbar-container container">
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              
+              <li><a href="Home.html">Hjem</a></li>
+              <li><a href="Kategori.html">Kategori</a></li>
+              <li><a href="Om_oss.html">Om oss</a></li>
+              <li><a href="kontakt_oss.html">Kontakt</a></li>
+              
+              <li class="dropdown">
+             <img style="width: 27px;" src="loggin.png" onclick="dropdown()" class="dropbtn">
+               <div id="myDropdown" class="dropdown-content">
+                
+                <form method="POST" action="" onsubmit="return validate();">
+                   <input type="text" name="username" placeholder="Brukernavn" id="name_of_user">
+                   <input type="text" name="useremail" placeholder="Epost" id="email_of_user">
+                   <input type="password" name="user_password" placeholder="Passord" id="password_of_user">
+                   <input type="submit" name="submit_form" value="loggin">
+                </form>		
+                <p id="error_para" ></p>
+               </div>
+              </li>
+              
+              
+              <li class="cart">
+                <img src="shopping-cart-icon-blue-color.jpg" style="width: 30px;" class="dropbtn">
+              
+                <div class="cart-content">
+                  <i class="fas fa-shopping-cart"></i> <!-- Font Awesome shopping cart icon -->
+                  <span class="cart-count">Antall bøker: 0</span> <!-- initially zero item in cart -->
+                </a>
+          
+                <div class="cart-dropdown">
+                <div class="cart-items"></div> <!-- display items added to cart -->
+            
+                 <div class="cart-total">Total: 0 kr</div> <!-- display total price of items in cart -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart"> <a href="checkout.html">Til betaling</a> </button>
+                <button class="clear-cart btn btn-danger" onclick="clearCart()">Tøm kurven</button>
+
+            </div>
+            </li>
+              
+            </ul>
+            
+            <a href="Home.html">  <img class="logo"style="width: 140px;" src="Logo.jpg"></a>
+         
+          </div>
+        </nav>
+        
+    
+    <section id="solgt">
+        <h2>Romantikk</h2>
+        
+        <div class="solgt-container container">
+            <div class="solgt-type bok">
+                <div class="img-container">
+                  <img style="width: 100px; height: 138px;"src="en_liste.jpg" alt="bok" />
+                  <div class="img-content">
+                    <p> En liste for livet</br>published 2010<br>Pris 150 kr</p>
+                    <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "en_liste.jpg")'>Kjøp</a>
+                    
+                  </div>
+                </div>
+              </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style="width: 100px; height: 138px;" src="0 (15).jfif"  alt="bok"  />
+              <div class="img-content">
+                <p>Familien Winther </br>published 2010</br> pris 250 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "250 kr", "0 (15).jfif")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style="width: 100px; height: 138px;"src="forventning.jpg"  alt="bok" />
+              <div class="img-content">
+                <p>Forventning</br>published 2023</br> pris 150 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "forventning.jpg")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="0 (16).jfif" alt="bok" />
+              <div class="img-content">
+                <p>Love</br>published 2008</br> pris 150 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "0 (16).jfif")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="0 (17).jfif"  alt="bok" />
+              <div class="img-content">
+                <p>De vi ikke sa</br>published 2005</br> pris 100 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "100 kr", "0 (17).jfif")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="0 (18).jfif" alt="bok" />
+              <div class="img-content">
+                <p>Kjærlihets Mønster</br>published 2000</br> pris 300 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "300 kr", "0 (18).jfif")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="9789150741100.jfif" alt="bok" />
+              <div class="img-content">
+                <p>Romantikk 1</br>published 2020</br> pris 100 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "100 kr", "9789150741100.jfif")'>Kjøp</a>
+                     
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          </div>
+            
+        </section>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+       
+        <section id="solgt">
+        
+        
+        <div class="solgt-container container">
+          
+            <div class="solgt-type bok">
+                <div class="img-container">
+                  <img style="width: 100px; height: 138px;"src="images.jfif" alt="bok" />
+                  <div class="img-content">
+                    <p>Kjærlig hilsen<br>published 2023<br> pris 250 kr</p>
+                    <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "250 kr", "images.jfif")'>Kjøp</a>
+                    
+                  </div>
+                </div>
+              </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style="width: 100px; height: 138px;"src="VisBildeServlet.jfif"  alt="bok"  />
+              <div class="img-content">
+                <p>Jill Mansell</br>published 2010</br> pris 150 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "VisBildeServlet.jfif")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style="width: 100px; height: 138px;"src="9789150736687.jpg"  alt="bok" />
+              <div class="img-content">
+                <p>Romantikk 2</br>published 2023</br> pris 250 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "250 kr", "9789150736687.jpg")'>Kjøp</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="9789150764307.jpg" alt="bok" />
+              <div class="img-content">
+                <p>Romantikk 3</br>published 2008</br> pris 150 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "9789150764307.jpg")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="9789150764895.jpg"  alt="bok" />
+              <div class="img-content">
+                <p>Romantikk 4</br>published 2005</br> pris 100 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "100 kr", "9789150764895.jpg")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="9789150798180.jpg" alt="bok" />
+              <div class="img-content">
+                <p>Romantikk 5</br>published 2000</br> pris 300 kr</p>
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "300 kr", "9789150798180.jpg")'>Kjøp</a>
+                    
+              </div>
+            </div>
+          </div>
+          
+          <div class="solgt-type bok">
+            <div class="img-container">
+              <img style= "width: 100px; height: 138px;" src="dating-dr-dil.jpg" alt="bok" />
+              <div class="img-content">
+                <p>Dating Dr. Dil</br>published 2020</br> pris 100 kr</p>
+                
+                <a href="#" class="add-to-cart btn btn-primary" onclick='addToCart("", "150 kr", "dating-dr-dil.jpg")'>Kjøp</a>
+                    
+                
+              </div>
+            </div>
+          </div>
+            
+          </div>
+          </div>
+          <p class="offershop-title">Vi kjøper dine brukte bøker!<a href="kontakt_oss.html"> Kontakt oss </a></p>
+            <div class="offershop-container container">
+        </div>
+  
+        </section>
+        
+       
+       
+        <footer id="footer">
+   
+      
+    
+          Følg oss på: <a href="https://www.facebook.com/" target="_blank"><img style="width: 27px; padding-left: 7px;margin-left: 40px;" src="Facebook_f_logo_(2021).svg.png" alt="facebook"></a>
+              <a href="https://www.instagram.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="instagram-icon.png" alt="instegram"></a>
+                <a href="https://twitter.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="twitter-icon.png" alt="Twiter">
+                  <a href="Personvern.html" 
+                  <a style=" color: white; padding-left: 7px;margin-left: 80px;padding-right: 7px; border-left: 1px solid ;font-size:medium; " >Personvern</a> 
+            
+          </footer>
+       
+  </body>
+</html>      

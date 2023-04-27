@@ -1,0 +1,213 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href= "Logo2.png">
+    <title>Bookflow</title>
+    
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="Om oss.css" />
+    <script type="text/javascript">
+			function validate()
+			{
+			 var error="";
+			 var name = document.getElementById( "name_of_user" );
+			 if( name.value == "" )
+			 {
+			  error = " Skriv inn ditt brukernavn  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 var email = document.getElementById("email_of_user");
+			 if( email.value == "" || email.value.indexOf( "@" ) == -1 )
+			 {
+			  error = " Ikke valid epost-addresse ";
+			  document.getElementById("error_para").innerHTML = error;
+			  return false;
+			 }			 
+			 var password = document.getElementById( "password_of_user" );
+			 if( password.value == "" || password.value.length < 4 )
+			 {
+			  error = " Passord må på minst 4 digitel  ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			 }
+			 else
+			 {
+			  error = " Registrering er vellykket ";
+			  document.getElementById( "error_para" ).innerHTML = error;
+			  return false;
+			  //return true;
+			 }
+			}
+
+      
+                 
+                 function dropdown() {
+                  document.getElementById("myDropdown").classList.toggle("show");
+              }   
+
+             
+           
+		</script>
+  
+    
+
+   
+  </head>
+  
+  <body>
+    
+    <nav class="navbar">
+      <div class="navbar-container container">
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              
+            <li><a href="Home.html">Hjem</a></li>
+            <li><a href="Kategori.html">Kategori</a></li>
+            <li><a href="Om_oss.html">Om oss</a></li>
+            <li><a href="kontakt_oss.html">Kontakt</a></li>
+            
+            <li class="dropdown">
+              <img style="width: 27px;" src="loggin.png" onclick="dropdown()" class="dropbtn">
+                <div id="myDropdown" class="dropdown-content">
+                 
+                 <form method="POST" action="" onsubmit="return validate();">
+                    <input type="text" name="username" placeholder="Brukernavn" id="name_of_user">
+                    <input type="text" name="useremail" placeholder="Epost" id="email_of_user">
+                    <input type="password" name="user_password" placeholder="Passord" id="password_of_user">
+                    <input type="submit" name="submit_form" value="loggin">
+                 </form>		
+                 <p id="error_para" ></p>
+                
+               
+               </div>
+            </li>
+            <li class="cart">
+              <img src="shopping-cart-icon-blue-color.jpg" style="width: 30px;" class="dropbtn">
+            
+              <div class="cart-content">
+                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome shopping cart icon -->
+                <span class="cart-count">Antall bøker: 0</span> <!-- initially zero item in cart -->
+              </a>
+        
+              <div class="cart-dropdown">
+              <div class="cart-items"></div> <!-- display items added to cart -->
+          
+               <div class="cart-total">Total: 0 kr</div> <!-- display total price of items in cart -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart"> <a href="checkout.html">Til betaling</a> </button>
+              <button class="clear-cart btn btn-danger" onclick="clearCart()">Tøm kurven</button>
+
+          </div>
+          </li>
+               
+                  
+          </ul>
+           <a href="Home.html">  <img class="logo"style="width: 140px;" src="Logo.jpg"></a>
+         
+          
+         
+          
+          
+      </div>
+  </nav>
+  <section id="about">
+    <div class="about-wrapper container">
+      <div class="about-text">
+        <p class="small">Om oss</p>
+        <h4>Salg og kjøp av brukte bøker siden 1965</h4>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <p>
+          Vi i Bookflow er veldig opptatt av miljøet og økonomien.
+          For det vi gjør best mulig for å øke kjøp og salg av brukte
+          bøker i samfunnet. Med å handle brukte bøker sparer du dine 
+          penger og du bidrar med å ta vare på miljøet. vi har hatt hele tiden mange
+          faste kunder fra Oslo og omegn, men nå har vi lansert vår nettbuttik for at hele Norge Kan
+          handle hos oss. Vi er tredje generasjonen som har arvet og drever med prosjektet,
+          og vi vil at prosjektet skal overleve videre.
+          vår mål at brukte bøker skal overleve og brukes mest mulig, 
+          vi mener at så lenge vi passer på brukte bøker og overføre de videre, 
+          passer på vår skog og til slutt vår miljøet, og ikke minst vår lommeboka.
+          
+         </br>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          
+        </p>
+        <h4 style="margin-top: 10px;"> Vi ser fram  å ha deg som kunde!</h4> 
+        
+        
+      </div>
+      <div class="about-img">
+        <img src="bokhandel2.jpg" alt="bokhandel" /> 
+      </div>
+    </div>
+    </section>
+ 
+    <section id="solgt">
+      <h2>Vi er miljø-sertifisert</h2>
+      
+      <div class="solgt-container container">
+        
+        <div class="solgt-type bok">
+          <div class="img-container">
+            <img style="width: 200px;" src="Forests-For-All-Forever_FSC_logo.jpg"  alt="bok"/> 
+            <div class="img-content">
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="solgt-type bok">
+          <div class="img-container">
+            <img style="width: 337px;height: 100px;" src="ISO14001.gif"  alt="bok"  />
+            <div class="img-content">
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="solgt-type bok">
+          <div class="img-container">
+            <img style="width: 150px;" src="miljøfyrtårn.jpg"  alt="bok" />
+            <div class="img-content">
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        </div>
+        </div>
+          <p class="offershop-title">Vi kjøper dine brukte bøker!<a href="kontakt_oss.html"> Kontakt oss </a></p>
+          <div class="offershop-container container">
+      </div>
+      </section>
+     
+  
+  
+ 
+
+  
+  <footer id="footer">
+   
+      
+    
+  Følg oss på: <a href="https://www.facebook.com/" target="_blank"><img style="width: 27px; padding-left: 7px;margin-left: 40px;" src="Facebook_f_logo_(2021).svg.png" alt="facebook"></a>
+      <a href="https://www.instagram.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="instagram-icon.png" alt="instegram"></a>
+        <a href="https://twitter.com/" target="_blank"> <img style="width: 27px;padding-left: 7px;margin-left: 40px;" src="twitter-icon.png" alt="Twiter">
+          <a href="Personvern.html" 
+          <a style=" color: white; padding-left: 7px;margin-left: 80px;padding-right: 7px; border-left: 1px solid ;font-size:medium; " >Personvern</a> 
+    
+  </footer>
+</body>
+</html>      
+  
